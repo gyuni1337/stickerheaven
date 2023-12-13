@@ -4,7 +4,6 @@ import React, { Component, PropTypes } from "react";
 import Image from "next/image";
 
 export default function Card({ title, description, img, price }) {
-  // for test 4
   let x = "token";
 
 
