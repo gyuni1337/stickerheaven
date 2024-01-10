@@ -15,7 +15,7 @@ export default function Stickers() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-     async function getLimited() {
+     async function getAll() {
       let { data: stickers, error } = await supabase
         .from('stickers')
         .select('*')
@@ -23,10 +23,9 @@ export default function Stickers() {
 
       } 
 
-      getLimited();
+      getAll();
 
   }, []);
-
 
 
   return (
@@ -34,17 +33,25 @@ export default function Stickers() {
         <Navbar/>
     
         <div className="lg:mx-96 lg:mt-32 mt-28 mx-12">
-          <div className='flex'>
-            <h1 className="text-2xl text-red-400">Available Stickers</h1>
-          <input type="text" id="searchBar" className=" border text-sm rounded-lg" placeholder="John" required></input>
+          <div className='flex flex-col lg:flex-row gap-5 mb-5 items-center'>
+            <h1 className="text-3xl text-red-400">Available Stickers</h1>
+          <input type="text" id="searchBar" onChange={e => setSearch(e.target.value)} className=" text-black  py-2 w-[18rem] lg:w-[25rem] pl-5 border-2 border-red-400 text-lg rounded-lg" placeholder="Search for a specific sticker" required></input>
           </div>
             <div className='flex flex-wrap gap-10'>
-              { stickers && stickers.map(sticker => (
+              { 
+                  stickers && stickers.filter((val) => {
+                    if (search == "") {
+                      return val
+                    } else if (val.title.toLowerCase().includes(search.toLowerCase())) {
+                      return val
+                    }
+                  }).map(sticker => (
+                    <Card title={sticker.title} key={sticker.id} description={sticker.description} img={sticker.img} price={sticker.price}/>
+                  ))
 
-
-              <Card title={sticker.title} key={sticker.id} description={sticker.description} img={sticker.img} price={sticker.price}/>
                 
-                ))};
+              }
+
 
             </div>
         </div>

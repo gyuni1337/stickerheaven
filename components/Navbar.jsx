@@ -38,11 +38,11 @@ export default function Navbar() {
           </div>  
 
       </div>
-          <div className={`${visible ? "flex" : "hidden"} flex-col mx-12 gap-5 mt-5`}>
-            <Link href="/market" className='text-bg cursor-pointer text-lg mt-1.5'>market</Link>
+          <div className={`${visible ? "flex" : "hidden"} flex-col w-full px-14 border-t border-red-400 gap-5 mt-5`}>
+            <Link href="/market" className='text-bg cursor-pointer mt-5 text-lg'>market</Link>
             <Link href="/stickers" className='text-bg cursor-pointer text-lg mt-1.5'>stickers</Link>
             <Link href="/cases" className='text-bg cursor-pointer text-lg mt-1.5'>cases</Link>
-            <Link href="/login" className='bg-red-400 p-2 rounded-xl px-5 text-white border-1 border-white hover:bg-red-500 transition-colors duration-300 shadow cursor-pointer' >Sign In</Link>
+            <Link href="/login" className='bg-red-400 p-2 rounded-xl px-5 max-w-lg text-white border-1 border-white hover:bg-red-500 transition-colors duration-300 shadow cursor-pointer' >Sign In</Link>
 
     </div>
 
