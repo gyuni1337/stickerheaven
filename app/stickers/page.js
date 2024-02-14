@@ -1,31 +1,33 @@
+'use client'
+
 import React, { useEffect, useState } from 'react';
 import '/app/globals.css';
-import Navbar from '@/components/Navbar';
+import Navbar from '../components/Navbar';
 import { createClient } from '@supabase/supabase-js'
-import Card from '@/components/Card';
+import Card from '../components/Card';
 
-const supabaseUrl = 'https://ocmuyepjcnzhlwxsrxeb.supabase.co'
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
+// const supabaseUrl = 'https://ocmuyepjcnzhlwxsrxeb.supabase.co'
+// const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+// const supabase = createClient(supabaseUrl, supabaseKey)
 
 
-export default function Stickers() {
+export default function Page() {
 
   const [stickers, setStickers] = useState(null);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-     async function getAll() {
-      let { data: stickers, error } = await supabase
-        .from('stickers')
-        .select('*')
-      setStickers(stickers);
+//   useEffect(() => {
+//      async function getAll() {
+//       let { data: stickers, error } = await supabase
+//         .from('stickers')
+//         .select('*')
+//       setStickers(stickers);
 
-      } 
+//       } 
 
-      getAll();
+//       getAll();
 
-  }, []);
+//   }, []);
 
 
   return (
