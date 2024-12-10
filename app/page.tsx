@@ -1,10 +1,7 @@
 'use client'
 
 import './globals.css'
-import { signIn } from './api/auth'
 import { useState } from 'react';
-import { setServers } from 'dns';
-import { AuthError } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 
 export default function Index() {
@@ -16,13 +13,7 @@ export default function Index() {
 
 
   const handleLogin = async () => {
-      const res = await signIn({ email, password });
-      
-      if(res) {
         router.push('/main');        
-      } else {
-        setError('Invalid credentials')
-      }
   }
 
    return (

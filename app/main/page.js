@@ -3,42 +3,40 @@
 import Navbar from '../components/Navbar';
 import Card from '../components/Card';
 import Image from 'next/image';
-import { authed } from '../api/auth';
 import { use, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'
-import { loadStickers, sendLimited} from "../api/events";
 export default function Page() {
   const router = useRouter()
 
     let [limited, setLimited] = useState([]);
 
-useEffect(() => {
+// useEffect(() => {
 
-    const checkAuth = async () => {
-        try {
-            // let authenticated = await authed(); // Assuming `authed` is your authentication function
-            let authenticated = true;
-            if (!authenticated) {
-                router.push('/');
-                console.log('not authorized');
-            }
-        } catch (error) {
-            console.error('Error checking authentication:', error);
-        }
-    };
+//     const checkAuth = async () => {
+//         try {
+//             // let authenticated = await authed(); // Assuming `authed` is your authentication function
+//             let authenticated = true;
+//             if (!authenticated) {
+//                 router.push('/');
+//                 console.log('not authorized');
+//             }
+//         } catch (error) {
+//             console.error('Error checking authentication:', error);
+//         }
+//     };
 
-    checkAuth();
+//     checkAuth();
 
-    let fetchLimited = async () => {
-        let stickers = await sendLimited();
-        setLimited(stickers);
-    }
+//     let fetchLimited = async () => {
+//         let stickers = await sendLimited();
+//         setLimited(stickers);
+//     }
 
-    fetchLimited();
+//     fetchLimited();
 
 
 
-}, []);
+// }, []);
 
   return (
     <>
@@ -62,13 +60,13 @@ useEffect(() => {
       <div className='flex justify-center mt-[5%] mb-[10%]'>
 
         <div className='flex justify-around items-center flex-wrap max-w-5xl gap-7'>
-          {
+          {/* {
             limited && limited.map((current) => {
               return (
                 <Card key={current.id} title={current.title} description={current.description} img={current.img} price={current.price} />
               )
             })
-          }
+          } */}
 
         </div>
       </div>
