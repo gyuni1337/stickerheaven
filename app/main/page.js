@@ -10,33 +10,6 @@ export default function Page() {
 
     let [limited, setLimited] = useState([]);
 
-// useEffect(() => {
-
-//     const checkAuth = async () => {
-//         try {
-//             // let authenticated = await authed(); // Assuming `authed` is your authentication function
-//             let authenticated = true;
-//             if (!authenticated) {
-//                 router.push('/');
-//                 console.log('not authorized');
-//             }
-//         } catch (error) {
-//             console.error('Error checking authentication:', error);
-//         }
-//     };
-
-//     checkAuth();
-
-//     let fetchLimited = async () => {
-//         let stickers = await sendLimited();
-//         setLimited(stickers);
-//     }
-
-//     fetchLimited();
-
-
-
-// }, []);
 
   return (
     <>
