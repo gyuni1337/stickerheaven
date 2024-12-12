@@ -4,11 +4,25 @@ import Navbar from '../components/Navbar';
 import Card from '../components/Card';
 import Image from 'next/image';
 import { use, useEffect, useState } from 'react';
+import db from '../utils/db';
 import { useRouter } from 'next/navigation'
+
+
 export default function Page() {
   const router = useRouter()
 
     let [limited, setLimited] = useState([]);
+
+  useEffect(() => {
+    db.get('/v1/stickers/limited')
+    .then((response) => {
+      setLimited(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+  , [])
 
 
   return (
@@ -33,13 +47,13 @@ export default function Page() {
       <div className='flex justify-center mt-[5%] mb-[10%]'>
 
         <div className='flex justify-around items-center flex-wrap max-w-5xl gap-7'>
-          {/* {
+          {
             limited && limited.map((current) => {
               return (
                 <Card key={current.id} title={current.title} description={current.description} img={current.img} price={current.price} />
               )
             })
-          } */}
+          }
 
         </div>
       </div>

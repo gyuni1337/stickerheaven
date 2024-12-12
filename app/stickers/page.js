@@ -5,30 +5,14 @@ import '/app/globals.css';
 import Navbar from '../components/Navbar';
 import { createClient } from '@supabase/supabase-js'
 import Card from '../components/Card';
+import db from '../utils/db.js';
 
-// const supabaseUrl = 'https://ocmuyepjcnzhlwxsrxeb.supabase.co'
-// const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-// const supabase = createClient(supabaseUrl, supabaseKey)
 
 
 export default function Page() {
 
-  const [stickers, setStickers] = useState(null);
+  const [stickers, setStickers] = useState([]);
   const [search, setSearch] = useState('');
-
-//   useEffect(() => {
-//      async function getAll() {
-//       let { data: stickers, error } = await supabase
-//         .from('stickers')
-//         .select('*')
-//       setStickers(stickers);
-
-//       } 
-
-//       getAll();
-
-//   }, []);
-
 
   return (
     <>
