@@ -12,7 +12,6 @@ export default function Index() {
   let [error, setError ] = useState('');
   
   
-
   const handleLogin = async () => {
         router.push('/main');        
   }
