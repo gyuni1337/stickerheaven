@@ -12,8 +12,8 @@ import { useRouter } from 'next/navigation'
 export default function Page() {
   const router = useRouter()
 
-    
     let [limited, setLimited] = useState([]);
+  let testing;
 
   useEffect(() => {
     db.get('/v1/stickers/limited')
